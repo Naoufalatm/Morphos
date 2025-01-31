@@ -1,14 +1,14 @@
 # Transpiler
 
-## About The Project : 
-Transpiler is a small school projects that transpile a subset of Elixir into a concurent C code that consumes a runtime that was written by us ;
+# Elixir-to-C Transpiler  
 
-The subset of Elixir contains : 
-- defining new variables 
-- fn -> _ end anonymous function declaration
-- IO.inspect 
-- basic rudimentary arithmetic operations 
-- spawn , creating green thread
+## Overview  
+
+This project is part of the **Master’s Computer Science module: Concepts of Programming Languages**. It focuses on developing a **transpiler** that converts **Elixir code** into **high-performance C** while preserving Elixir’s functional paradigms and concurrency model.  
+
+## Motivation  
+
+Elixir is a dynamic, functional language designed for **scalability and fault tolerance**, running on the BEAM virtual machine. However, BEAM is not always suitable for **performance-critical** or **low-level environments** such as embedded systems or OS development. This project **bridges that gap** by translating Elixir code into **optimized C**, allowing execution outside BEAM while retaining key language features.  
 
 ## Getting started with Transpiler 
 
