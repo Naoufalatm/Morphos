@@ -1673,24 +1673,6 @@ graph TD
 
 ---
 
-#### **5. Benefits of This Mapping**
-
-1. **Efficiency:**
-
-   * Green threads are lightweight compared to OS threads.
-   * Enables creation of numerous concurrent tasks with minimal overhead.
-
-2. **Control:**
-
-   * Custom scheduler offers fine-grained control over thread execution.
-   * Optimizes performance for specific application needs.
-
-3. **Portability:**
-
-   * Abstracts concurrency mechanisms within the runtime.
-   * Ensures consistent behavior across different platforms and environments.
-
----
 
 <!-- livebook:{"break_markdown":true} -->
 
