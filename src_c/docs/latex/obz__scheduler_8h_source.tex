@@ -1,0 +1,39 @@
+\doxysection{obz\+\_\+scheduler.\+h}
+\hypertarget{obz__scheduler_8h_source}{}\label{obz__scheduler_8h_source}\index{include/obz\_scheduler.h@{include/obz\_scheduler.h}}
+\mbox{\hyperlink{obz__scheduler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ OBZ\_SCHEDULER\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ OBZ\_SCHEDULER\_H\_}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <ucontext.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <signal.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <sys/time.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ schedule\_next\_thread(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{obz__scheduler_8h_a4dc06da13baa6917b80d3888236b1ada}{thread\_wrapper}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00026\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setup\_timer(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00027\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ timer\_handler(\textcolor{keywordtype}{int}\ signum);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{obz__scheduler_8h_adfadb6ad96125df980076ac41983ceb3}{green\_thread\_create}}(\textcolor{keywordtype}{void}\ (*function)(\textcolor{keywordtype}{void}*),\ \textcolor{keywordtype}{void}*\ arg);}
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{obz__scheduler_8h_a192c95965e87d8680376978cd081b42e}{green\_thread\_run}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{obz__scheduler_8h_a84d08f4f2aeb282075f1415336d9ed67}{setup\_fault\_tolerance\_signal\_handler}}();}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ run();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ STACK\_SIZE\ (1024\ *\ 1024)\ \ }\textcolor{comment}{//\ 1MB\ stack\ size\ (\ arbitraire\ )}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ MAX\_THREADS\ 64}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ TIME\_SLICE\_MS\ 256\ }\textcolor{comment}{//\ this\ is\ what\ sets\ the\ context\ switichign\ (\ a\ hack\ )}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ OBZ\_SCHEDULER\_H\_}}
+
+\end{DoxyCode}

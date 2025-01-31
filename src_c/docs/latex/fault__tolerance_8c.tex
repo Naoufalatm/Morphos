@@ -1,0 +1,34 @@
+\doxysection{src/fault\+\_\+tolerance.c File Reference}
+\hypertarget{fault__tolerance_8c}{}\label{fault__tolerance_8c}\index{src/fault\_tolerance.c@{src/fault\_tolerance.c}}
+{\ttfamily \#include "{}obz\+\_\+scheduler.\+h"{}}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fault__tolerance_8c_a6aa59f98cad89c73966351ad7afb303c}\label{fault__tolerance_8c_a6aa59f98cad89c73966351ad7afb303c} 
+void {\bfseries signal\+\_\+handler} (int sig)
+\item 
+void \mbox{\hyperlink{fault__tolerance_8c_ac683986dfc93259a49a877fa48a41b24}{setup\+\_\+handle\+\_\+signals}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fault__tolerance_8c_aae6d913766d5e5bc6823dd0c1627ef31}\label{fault__tolerance_8c_aae6d913766d5e5bc6823dd0c1627ef31} 
+struct sigaction {\bfseries sa}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\+: Obz team
+\end{DoxyAuthor}
+This file contains functions concerning handling for interupts and other signals besides the {\ttfamily SIGALRM} that\textquotesingle{}s used in the scheduling of the green threads 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fault__tolerance_8c_ac683986dfc93259a49a877fa48a41b24}\index{fault\_tolerance.c@{fault\_tolerance.c}!setup\_handle\_signals@{setup\_handle\_signals}}
+\index{setup\_handle\_signals@{setup\_handle\_signals}!fault\_tolerance.c@{fault\_tolerance.c}}
+\doxysubsubsection{\texorpdfstring{setup\_handle\_signals()}{setup\_handle\_signals()}}
+{\footnotesize\ttfamily \label{fault__tolerance_8c_ac683986dfc93259a49a877fa48a41b24} 
+void setup\+\_\+handle\+\_\+signals (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+This function does set the interput handler for bootstraping rudimentary fault tolerance for the failure of the Green threads 

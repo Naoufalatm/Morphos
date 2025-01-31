@@ -1,0 +1,39 @@
+\doxysection{src/fallback.c File Reference}
+\hypertarget{fallback_8c}{}\label{fallback_8c}\index{src/fallback.c@{src/fallback.c}}
+{\ttfamily \#include "{}obz\+\_\+scheduler.\+h"{}}\newline
+{\ttfamily \#include "{}scheduler.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fallback_8c_a2d8e4524ed5d4eb68198febbe07a7c49}{fallback}} (int signum)
+\item 
+void \mbox{\hyperlink{fallback_8c_a84d08f4f2aeb282075f1415336d9ed67}{setup\+\_\+fault\+\_\+tolerance\+\_\+signal\+\_\+handler}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fallback_8c_a7714de4b56e9edd12c75f4781688edef}\label{fallback_8c_a7714de4b56e9edd12c75f4781688edef} 
+\mbox{\hyperlink{structScheduler}{Scheduler}} {\bfseries scheduler}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\+: Obz team
+\end{DoxyAuthor}
+This file contains functions concerning handling for interupts and other signals besides the {\ttfamily SIGALRM} that\textquotesingle{}s used in the scheduling of the green threads 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fallback_8c_a2d8e4524ed5d4eb68198febbe07a7c49}\index{fallback.c@{fallback.c}!fallback@{fallback}}
+\index{fallback@{fallback}!fallback.c@{fallback.c}}
+\doxysubsubsection{\texorpdfstring{fallback()}{fallback()}}
+{\footnotesize\ttfamily \label{fallback_8c_a2d8e4524ed5d4eb68198febbe07a7c49} 
+void fallback (\begin{DoxyParamCaption}\item[{int}]{signum}{}\end{DoxyParamCaption})}
+
+This function is a rudimentary fallback signal handler , the sleep is to make the printf micro task run the last , since other green processes will be printing theirs \Hypertarget{fallback_8c_a84d08f4f2aeb282075f1415336d9ed67}\index{fallback.c@{fallback.c}!setup\_fault\_tolerance\_signal\_handler@{setup\_fault\_tolerance\_signal\_handler}}
+\index{setup\_fault\_tolerance\_signal\_handler@{setup\_fault\_tolerance\_signal\_handler}!fallback.c@{fallback.c}}
+\doxysubsubsection{\texorpdfstring{setup\_fault\_tolerance\_signal\_handler()}{setup\_fault\_tolerance\_signal\_handler()}}
+{\footnotesize\ttfamily \label{fallback_8c_a84d08f4f2aeb282075f1415336d9ed67} 
+void setup\+\_\+fault\+\_\+tolerance\+\_\+signal\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+This function does set the interput handler for bootstraping rudimentary fault tolerance for the failure of the Green threads 

@@ -1,0 +1,397 @@
+# Elixir-To-C Transpiler
+
+```elixir
+alias VegaLite, as: Vl
+```
+
+## Introduction
+
+### Project Motivation :
+
+We wanna implement two main features from a subset of `Elixir` to `C` :
+
+* Defining variables ( pattern matching ) ( e.g: x = "value1" ),
+* &IO.inspect/1 ,
+* Basic rudimentary arithmetic operations on literals,
+* spawn function for spawning green threads.
+
+<!-- livebook:{"break_markdown":true} -->
+
+<!-- Learn more at https://mermaid-js.github.io/mermaid -->
+
+```mermaid
+graph TD;
+  A-->B;
+  A-->C;
+  B-->D;
+  C-->D;
+```
+
+```elixir
+input =
+  "IO.inspect(\"yddayy\")"
+
+main_block =
+  input
+  |> Code.string_to_quoted!()
+  |> Transpiler.Parser.parse()
+
+transpiled_code =
+  "#{Enum.map_join(main_block.expressions, "    ;\n    ", &Transpiler.Tree.Expression.generate_code(&1))};"
+
+IO.puts(transpiled_code)
+```
+
+```elixir
+input =
+  """
+    x = 10 
+    y = 1.1
+  """
+
+main_block =
+  input
+  |> Code.string_to_quoted!()
+  |> Transpiler.Parser.parse()
+
+transpiled_code =
+  "#{Enum.map_join(main_block.expressions, "    ;\n    ", &Transpiler.Tree.Expression.generate_code(&1))};"
+
+IO.puts(transpiled_code)
+```
+
+```elixir
+input =
+  "spawn(fn -> IO.inspect(\"yaay\") end)"
+
+main_block =
+  input
+  |> Code.string_to_quoted!()
+  |> Transpiler.Parser.parse()
+
+transpiled_code =
+  "#{Enum.map_join(main_block.expressions, "    ;\n    ", &Transpiler.Tree.Expression.generate_code(&1))};"
+
+IO.puts(transpiled_code)
+```
+
+```elixir
+input =
+  """
+  spawn(fn ->
+    x = 0
+    y = "hamid" 
+    IO.inspect(\"yaay\")
+    IO.inspect(y)
+  end)
+  """
+
+main_block =
+  input
+  |> Code.string_to_quoted!()
+  |> Transpiler.Parser.parse()
+
+transpiled_code =
+  "#{Enum.map_join(main_block.expressions, "    ;\n    ", &Transpiler.Tree.Expression.generate_code(&1))};"
+
+IO.puts(transpiled_code)
+```
+
+```elixir
+input =
+  """
+  spawn(fn ->
+    x = 0
+    y = "hamid" 
+    IO.inspect(\"yaay\")
+    IO.inspect(y)
+  end)
+  """
+
+{:ok, transpiled_code} =
+  input
+  |> Transpiler.transpile()
+
+{:ok, file} = File.open("./output/output.c", [:write, :binary])
+
+IO.binwrite(file, transpiled_code)
+
+{:ok, file_read} = File.read("./output/output.c")
+IO.puts(file_read)
+
+File.close(file)
+```
+
+```elixir
+System.cmd("ls", []) |> elem(0) |> IO.puts()
+```
+
+```elixir
+# Execute the system command
+{status, output} =
+  System.cmd("gcc", ["./output/output.c", "-o", "output", "./src_c/lib/libobzruntime.a"])
+
+IO.inspect(status)
+# Check the status and print the output
+case status do
+  0 ->
+    IO.puts("Command executed successfully.")
+    IO.puts("Output: #{output}")
+
+  _ ->
+    IO.puts("Command failed with status #{status}.")
+    IO.puts("Error output: #{output}")
+end
+```
+
+### Subset of Elixir :
+
+| Name | Elixir Subset |
+| ---- | ------------- |
+
+|     | variable binding       | x = 10          |
+|     | -                      | y = "hamid "    |
+|     | anonymous function     | fn _ -> :ok end |
+|     | spawning processes     | &spawn/1        |
+|     | printing to the stdout | &IO.inspect/1   |
+
+```elixir
+
+```
+
+<!-- Learn more at https://mermaid-js.github.io/mermaid -->
+
+```mermaid
+graph TD
+    subgraph User Input
+        A[Elixir Code]
+    end
+
+    subgraph AST Generation
+        B[AST Generator]
+    end
+
+    subgraph Code Management
+        C[Code Parser and Expression Generator]
+        D[Code Generator]
+    end
+
+    subgraph Output
+        E[Target Language C Code]
+    end
+
+    A -->|Generates AST| B
+    B -->|AST Node 1| C
+    B -->|AST Node 2| C
+    B -->|AST Node 3| C
+    B -->|...| C
+    C -->|Parsed Code| D
+    D -->|Generates| E
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+    style C fill:#bef,stroke:#333,stroke-width:2px
+    style D fill:#fbb,stroke:#333,stroke-width:2px
+    style E fill:#ffb,stroke:#333,stroke-width:2px
+
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+<!-- Learn more at https://mermaid-js.github.io/mermaid -->
+
+```mermaid
+graph TD
+    A[Elixir Code] --> B[AST Generator]
+    B --> C[Code Parser and Expression Generator]
+    C --> D[Code Generator]
+    D --> E[Target Language Code]
+
+    subgraph Components
+        B1[AST Generator]
+        C1[Code Parser and Expression Generator]
+        D1[Code Generator]
+    end
+
+    A --> B1
+    B1 --> C1
+    C1 --> D1
+    D1 --> E
+
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+
+
+<!-- livebook:{"break_markdown":true} -->
+
+<!-- Learn more at https://mermaid-js.github.io/mermaid -->
+
+```mermaid
+graph TD
+    A[User-Defined Anonymous Function] --> B[Greenthread Creation and Wrapping Module]
+    B --> C[Global Threads Array]
+    C --> D[Scheduler]
+    D --> E[Round Robin Execution]
+
+    subgraph Components
+        B1[Greenthread Creation and Wrapping Module]
+        C1[Global Threads Array]
+        D1[Scheduler]
+    end
+
+    A --> B1
+    B1 --> C1
+    C1 --> D1
+    D1 --> E
+
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+<!-- Learn more at https://mermaid-js.github.io/mermaid -->
+
+```mermaid
+graph TD
+    subgraph User Input
+        A[User-Defined Anonymous Function]
+    end
+
+    subgraph Greenthread Management
+        B[Greenthread Creation and Wrapping Module]
+        C[(Global Threads Array)]
+    end
+
+    subgraph Scheduling
+        D[Scheduler]
+        E[Round Robin Execution]
+    end
+
+    A -->|Creates and Wraps| B
+    B -->|Thread 1| C
+    B -->|Thread 2| C
+    B -->|Thread 3| C
+    B -->|...| C
+    C -->|Manages| D
+    D -->|Executes| E
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+    style C fill:#bef,stroke:#333,stroke-width:2px
+    style D fill:#fbb,stroke:#333,stroke-width:2px
+    style E fill:#ffb,stroke:#333,stroke-width:2px
+
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+<!-- Learn more at https://mermaid-js.github.io/mermaid -->
+
+```mermaid
+graph 
+    subgraph Type Mappings
+        A1[x = 0 #40;int#41;] --> B1[int x = 0;]
+        A2[y = 1.2 #40;float#41;] --> B2[float y = 1.2;]
+        A3[z = &quot;this is a string&quot; #40;string#41;] --> B3[char* z = &quot;this is a string&quot;;]
+        A4[fn = fn -&gt; :ok end #40;Anonymous function #40;void#41; -&gt; #40;:ok#41;#41;] --> B4[lambda#40;#40;void#41;, #40;void *arg#41;,  ret :ok  #41;;]
+    end
+
+    style A1 fill:#f9f,stroke:#333,stroke-width:2px
+    style B1 fill:#bbf,stroke:#333,stroke-width:2px
+    style A2 fill:#f9f,stroke:#333,stroke-width:2px
+    style B2 fill:#bbf,stroke:#333,stroke-width:2px
+    style A3 fill:#f9f,stroke:#333,stroke-width:2px
+    style B3 fill:#bbf,stroke:#333,stroke-width:2px
+    style A4 fill:#f9f,stroke:#333,stroke-width:2px
+    style B4 fill:#bbf,stroke:#333,stroke-width:2px
+
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+<!-- Learn more at https://mermaid-js.github.io/mermaid -->
+
+```mermaid
+flowchart LR
+      EE[Elixir Raw Code]
+      F[Ast Generator]
+    subgraph Transpiler
+      EE -->| Parsing into AST| F --> |Yielding valid Elixir Statements|D
+   
+    subgraph Modules
+        A[Transpiler.Tree.Expression]
+        B[Transpiler.Tree.Mainblock]
+        C[Transpiler.CodeGenerator]
+    end
+
+        D[Elixir Statements] -->|Encodes Recursively| A
+        A -->|Encoded Expressions into MainBlock| B
+        B -->|MainBlocks Fed into| C
+        
+      C -->|Generates C Output| E[C Code]
+     end
+
+  
+
+```
+
+<!-- livebook:{"break_markdown":true} -->
+
+<!-- Learn more at https://mermaid-js.github.io/mermaid -->
+
+```mermaid
+graph TD
+    subgraph Transpiled Code
+        A[Transpiled Elixir Code]
+        AA[int x = 0;]
+        AB[char* y = &quot;this is a string&quot;]
+        AC[lambda#40;#40;void#41;, #40;void *arg#41;,  printf#40;&quot;works&quot;#41;; #41;]
+        AD[Expanded anonymous function declaration]
+        AE[green_thread_create#40;#41;]
+        GT[green_thread]
+        FN[Anonymous Function]
+    end
+
+    subgraph Scheduler
+        S1[Scheduler]
+    end
+
+    A -->|contains 0..*| AA
+    A -->|contains 0..*| AB
+    A -->|contains 0..*| AC -->|macro expansion| AD
+    AD -->|wrapped in green thread| AE
+    AE -->|Spawn 1..* green threads| GT -->|execute| FN
+
+    S1 -->|manage execution| GT
+    S1 -->|manage context switching| GT
+    S1 -->|manage Run State of GreenThreads| GT
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style AA fill:#bbf,stroke:#333,stroke-width:2px
+    style AB fill:#bef,stroke:#333,stroke-width:2px
+    style AC fill:#fbb,stroke:#333,stroke-width:2px
+    style AD fill:#ffb,stroke:#333,stroke-width:2px
+    style AE fill:#bff,stroke:#333,stroke-width:2px
+    style GT fill:#bfb,stroke:#333,stroke-width:2px
+    style FN fill:#fbf,stroke:#333,stroke-width:2px
+    style S1 fill:#bfb,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+
+    linkStyle 0 stroke:#333,stroke-width:2px
+    linkStyle 1 stroke:#333,stroke-width:2px
+    linkStyle 2 stroke:#333,stroke-width:2px
+    linkStyle 3 stroke:#333,stroke-width:2px
+    linkStyle 4 stroke:#333,stroke-width:2px
+    linkStyle 5 stroke:#333,stroke-width:2px
+    linkStyle 6 stroke:#333,stroke-width:2px
+    linkStyle 7 stroke:#333,stroke-width:2px
+    linkStyle 8 stroke:#333,stroke-width:2px
+    linkStyle 9 stroke:#333,stroke-width:2px
+
+  
+
+```
+
+```elixir
+
+```

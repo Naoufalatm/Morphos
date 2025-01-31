@@ -1,0 +1,38 @@
+\doxysection{Scheduler Struct Reference}
+\hypertarget{structScheduler}{}\label{structScheduler}\index{Scheduler@{Scheduler}}
+
+
+{\ttfamily \#include $<$scheduler.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structScheduler_ab36e2f2b33ba6bc7198b0d1a27bbe761}\label{structScheduler_ab36e2f2b33ba6bc7198b0d1a27bbe761} 
+\mbox{\hyperlink{structGreenThread}{Green\+Thread}} \texorpdfstring{$\ast$}{*} {\bfseries threads} \mbox{[}MAX\+\_\+\+THREADS\mbox{]}
+\item 
+\Hypertarget{structScheduler_aa9981cca3f5da4dfcc393aeb9a71b271}\label{structScheduler_aa9981cca3f5da4dfcc393aeb9a71b271} 
+int {\bfseries thread\+\_\+count}
+\item 
+\Hypertarget{structScheduler_af50cd7e31e7ed782715b074507181ae6}\label{structScheduler_af50cd7e31e7ed782715b074507181ae6} 
+int {\bfseries current\+\_\+thread}
+\item 
+\Hypertarget{structScheduler_af7606a321ec5006f9204e877b1aa054b}\label{structScheduler_af7606a321ec5006f9204e877b1aa054b} 
+ucontext\+\_\+t {\bfseries main\+\_\+context}
+\item 
+\Hypertarget{structScheduler_a43384b686d0dcb225535fcc79616a325}\label{structScheduler_a43384b686d0dcb225535fcc79616a325} 
+struct sigaction {\bfseries old\+\_\+action}
+\item 
+\Hypertarget{structScheduler_accd8df0520ab8320b3d9405a713294fe}\label{structScheduler_accd8df0520ab8320b3d9405a713294fe} 
+struct itimerval {\bfseries old\+\_\+timer}
+\item 
+\Hypertarget{structScheduler_a827197a1a76f39ea4b42a18f7ac84a48}\label{structScheduler_a827197a1a76f39ea4b42a18f7ac84a48} 
+bool {\bfseries is\+\_\+switching}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+scheduler is a struct that holds metadata about the scheduler global object , the one that will do the scheduling of the green thread \+: threads\+: is an allocated array that holds a pointer to greenthread objects current\+\_\+thread\+: is the current thread with the {\ttfamily RUNNING} state , the concept of holding the number as an int is used mainly for indexing the threads\mbox{[}\mbox{]} array main\+\_\+context \+: is the current ucontext\+\_\+t of the current\+\_\+thread ( or threads\mbox{[}current\+\_\+thread\mbox{]} ) old\+\_\+timer\+: is used to set and hold the timer that\textquotesingle{}s gonna be consumed by the kernel to send the {\ttfamily SIGALRM} signal old\+\_\+action \& is\+\_\+switching \+: are not used ! 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{scheduler_8h}{scheduler.\+h}}\end{DoxyCompactItemize}

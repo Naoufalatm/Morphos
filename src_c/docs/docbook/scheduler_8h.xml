@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_scheduler_8h" xml:lang="en-US">
+<title>include/scheduler.h File Reference</title>
+<indexterm><primary>include/scheduler.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;thread.h&quot;<?linebreak?>#include &quot;obz_scheduler.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structScheduler">Scheduler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef struct Scheduler <link linkend="_scheduler_8h_1a1ef1f6f320939ca611a0caca79a97ff1">Scheduler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>Author</title>
+
+<para>: Obz Team This file contains foundational data structure <link linkend="_structScheduler">Scheduler</link> , that comprises all the data about the global scheduler object </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_scheduler_8h_1a1ef1f6f320939ca611a0caca79a97ff1"/><section>
+    <title>Scheduler</title>
+<indexterm><primary>Scheduler</primary><secondary>scheduler.h</secondary></indexterm>
+<indexterm><primary>scheduler.h</primary><secondary>Scheduler</secondary></indexterm>
+<para><computeroutput>typedef struct Scheduler Scheduler</computeroutput></para>
+<para>scheduler is a struct that holds metadata about the scheduler global object , the one that will do the scheduling of the green thread : threads: is an allocated array that holds a pointer to greenthread objects current_thread: is the current thread with the <computeroutput>RUNNING</computeroutput> state , the concept of holding the number as an int is used mainly for indexing the threads[] array main_context : is the current ucontext_t of the current_thread ( or threads[current_thread] ) old_timer: is used to set and hold the timer that&apos;s gonna be consumed by the kernel to send the <computeroutput>SIGALRM</computeroutput> signal old_action &amp; is_switching : are not used ! </para>
+</section>
+</section>
+</section>

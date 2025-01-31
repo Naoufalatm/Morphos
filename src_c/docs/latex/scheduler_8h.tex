@@ -1,0 +1,30 @@
+\doxysection{include/scheduler.h File Reference}
+\hypertarget{scheduler_8h}{}\label{scheduler_8h}\index{include/scheduler.h@{include/scheduler.h}}
+{\ttfamily \#include "{}thread.\+h"{}}\newline
+{\ttfamily \#include "{}obz\+\_\+scheduler.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structScheduler}{Scheduler}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct Scheduler \mbox{\hyperlink{scheduler_8h_a1ef1f6f320939ca611a0caca79a97ff1}{Scheduler}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\+: Obz Team This file contains foundational data structure \doxylink{structScheduler}{Scheduler} , that comprises all the data about the global scheduler object 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{scheduler_8h_a1ef1f6f320939ca611a0caca79a97ff1}\index{scheduler.h@{scheduler.h}!Scheduler@{Scheduler}}
+\index{Scheduler@{Scheduler}!scheduler.h@{scheduler.h}}
+\doxysubsubsection{\texorpdfstring{Scheduler}{Scheduler}}
+{\footnotesize\ttfamily \label{scheduler_8h_a1ef1f6f320939ca611a0caca79a97ff1} 
+typedef struct Scheduler Scheduler}
+
+scheduler is a struct that holds metadata about the scheduler global object , the one that will do the scheduling of the green thread \+: threads\+: is an allocated array that holds a pointer to greenthread objects current\+\_\+thread\+: is the current thread with the {\ttfamily RUNNING} state , the concept of holding the number as an int is used mainly for indexing the threads\mbox{[}\mbox{]} array main\+\_\+context \+: is the current ucontext\+\_\+t of the current\+\_\+thread ( or threads\mbox{[}current\+\_\+thread\mbox{]} ) old\+\_\+timer\+: is used to set and hold the timer that\textquotesingle{}s gonna be consumed by the kernel to send the {\ttfamily SIGALRM} signal old\+\_\+action \& is\+\_\+switching \+: are not used ! 

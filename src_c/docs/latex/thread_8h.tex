@@ -1,0 +1,46 @@
+\doxysection{include/thread.h File Reference}
+\hypertarget{thread_8h}{}\label{thread_8h}\index{include/thread.h@{include/thread.h}}
+{\ttfamily \#include $<$ucontext.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structGreenThread}{Green\+Thread}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct Green\+Thread \mbox{\hyperlink{thread_8h_a2cb3feed3a89920ec208261c5e62f5f0}{Green\+Thread}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{thread_8h_ab3804a8a4369184ad46dadf8e54957b6}{Thread\+State}} \{ {\bfseries READY}
+, {\bfseries RUNNING}
+, {\bfseries FINISHED}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\+: Obz Team This file contains foundational data structures and Enums , \doxylink{structGreenThread}{Green\+Thread} is struct comprising metadata about the green threads , the Thread\+State enum contains possible state of a green thread. 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{thread_8h_a2cb3feed3a89920ec208261c5e62f5f0}\index{thread.h@{thread.h}!GreenThread@{GreenThread}}
+\index{GreenThread@{GreenThread}!thread.h@{thread.h}}
+\doxysubsubsection{\texorpdfstring{GreenThread}{GreenThread}}
+{\footnotesize\ttfamily \label{thread_8h_a2cb3feed3a89920ec208261c5e62f5f0} 
+typedef struct Green\+Thread Green\+Thread}
+
+\doxylink{structGreenThread}{Green\+Thread} is a struct that holds metadata about green thread \+: context\+: is the field that contains snapshot of all process , memory related data whilst running the green thread ( register\textquotesingle{}s values , process register counter ... ) . stack\+: contains the custom stack that will hold the local variables for the wrapped anonymous functions ( not working properly ) . state\+: the current state of the green thread . function\+: the function that the green thread in quesiton will run . arg\+: the argument that are gonna be fed to the wrapped function . 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{thread_8h_ab3804a8a4369184ad46dadf8e54957b6}\index{thread.h@{thread.h}!ThreadState@{ThreadState}}
+\index{ThreadState@{ThreadState}!thread.h@{thread.h}}
+\doxysubsubsection{\texorpdfstring{ThreadState}{ThreadState}}
+{\footnotesize\ttfamily \label{thread_8h_ab3804a8a4369184ad46dadf8e54957b6} 
+enum \mbox{\hyperlink{thread_8h_ab3804a8a4369184ad46dadf8e54957b6}{Thread\+State}}}
+
+This Enum is used to differentiate between the possible green threads states . 

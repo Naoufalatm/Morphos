@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_thread_8h" xml:lang="en-US">
+<title>include/thread.h File Reference</title>
+<indexterm><primary>include/thread.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;ucontext.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structGreenThread">GreenThread</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef struct GreenThread <link linkend="_thread_8h_1a2cb3feed3a89920ec208261c5e62f5f0">GreenThread</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_thread_8h_1ab3804a8a4369184ad46dadf8e54957b6">ThreadState</link> { <emphasis role="strong">READY</emphasis>
+, <emphasis role="strong">RUNNING</emphasis>
+, <emphasis role="strong">FINISHED</emphasis>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>Author</title>
+
+<para>: Obz Team This file contains foundational data structures and Enums , <link linkend="_structGreenThread">GreenThread</link> is struct comprising metadata about the green threads , the ThreadState enum contains possible state of a green thread. </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_thread_8h_1a2cb3feed3a89920ec208261c5e62f5f0"/><section>
+    <title>GreenThread</title>
+<indexterm><primary>GreenThread</primary><secondary>thread.h</secondary></indexterm>
+<indexterm><primary>thread.h</primary><secondary>GreenThread</secondary></indexterm>
+<para><computeroutput>typedef struct GreenThread GreenThread</computeroutput></para>
+<para><link linkend="_structGreenThread">GreenThread</link> is a struct that holds metadata about green thread : context: is the field that contains snapshot of all process , memory related data whilst running the green thread ( register&apos;s values , process register counter ... ) . stack: contains the custom stack that will hold the local variables for the wrapped anonymous functions ( not working properly ) . state: the current state of the green thread . function: the function that the green thread in quesiton will run . arg: the argument that are gonna be fed to the wrapped function . </para>
+</section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_thread_8h_1ab3804a8a4369184ad46dadf8e54957b6"/><section>
+    <title>ThreadState</title>
+<indexterm><primary>ThreadState</primary><secondary>thread.h</secondary></indexterm>
+<indexterm><primary>thread.h</primary><secondary>ThreadState</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_thread_8h_1ab3804a8a4369184ad46dadf8e54957b6">ThreadState</link></computeroutput></para>
+<para>This Enum is used to differentiate between the possible green threads states . </para>
+</section>
+</section>
+</section>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_fault__tolerance_8c" xml:lang="en-US">
+<title>src/fault_tolerance.c File Reference</title>
+<indexterm><primary>src/fault_tolerance.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;obz_scheduler.h&quot;<?linebreak?>#include &lt;signal.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_fault__tolerance_8c_1a6aa59f98cad89c73966351ad7afb303c"/>void <emphasis role="strong">signal_handler</emphasis> (int sig)</para>
+</listitem>
+            <listitem><para>void <link linkend="_fault__tolerance_8c_1ac683986dfc93259a49a877fa48a41b24">setup_handle_signals</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_fault__tolerance_8c_1aae6d913766d5e5bc6823dd0c1627ef31"/>struct sigaction <emphasis role="strong">sa</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>Author</title>
+
+<para>: Obz team</para>
+</formalpara>
+This file contains functions concerning handling for interupts and other signals besides the <computeroutput>SIGALRM</computeroutput> that&apos;s used in the scheduling of the green threads </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_fault__tolerance_8c_1ac683986dfc93259a49a877fa48a41b24"/><section>
+    <title>setup_handle_signals()</title>
+<indexterm><primary>setup_handle_signals</primary><secondary>fault_tolerance.c</secondary></indexterm>
+<indexterm><primary>fault_tolerance.c</primary><secondary>setup_handle_signals</secondary></indexterm>
+<para><computeroutput>void setup_handle_signals ( )</computeroutput></para>
+<para>This function does set the interput handler for bootstraping rudimentary fault tolerance for the failure of the Green threads </para>
+</section>
+</section>
+</section>

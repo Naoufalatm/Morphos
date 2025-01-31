@@ -1,0 +1,32 @@
+\doxysection{src/thread.c File Reference}
+\hypertarget{thread_8c}{}\label{thread_8c}\index{src/thread.c@{src/thread.c}}
+{\ttfamily \#include "{}obz\+\_\+scheduler.\+h"{}}\newline
+{\ttfamily \#include "{}thread.\+h"{}}\newline
+{\ttfamily \#include "{}scheduler.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{thread_8c_adfadb6ad96125df980076ac41983ceb3}{green\+\_\+thread\+\_\+create}} (void(\texorpdfstring{$\ast$}{*}function)(void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}arg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{thread_8c_a7714de4b56e9edd12c75f4781688edef}\label{thread_8c_a7714de4b56e9edd12c75f4781688edef} 
+\mbox{\hyperlink{structScheduler}{Scheduler}} {\bfseries scheduler}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\+: Obz team
+\end{DoxyAuthor}
+This file contains functions concerning the scheduler , and the spawn function ( green\+\_\+thread\+\_\+create ) , the distincting between this name and \textquotesingle{}spawn\textquotesingle{} is made because green\+\_\+thread\+\_\+create does create a wrapper around our user-\/defined anonymous functions and append it into an already global allocated array for green\+\_\+threads ! 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{thread_8c_adfadb6ad96125df980076ac41983ceb3}\index{thread.c@{thread.c}!green\_thread\_create@{green\_thread\_create}}
+\index{green\_thread\_create@{green\_thread\_create}!thread.c@{thread.c}}
+\doxysubsubsection{\texorpdfstring{green\_thread\_create()}{green\_thread\_create()}}
+{\footnotesize\ttfamily \label{thread_8c_adfadb6ad96125df980076ac41983ceb3} 
+int green\+\_\+thread\+\_\+create (\begin{DoxyParamCaption}\item[{void(\texorpdfstring{$\ast$}{*}}]{function~}{)(void \texorpdfstring{$\ast$}{*}), }\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+This function does create a wrapper around user-\/defined anonymous function and append it to the global thread array \textquotesingle{}scheduler.\+threads\mbox{[}\mbox{]}\textquotesingle{} 

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structGreenThread" xml:lang="en-US">
+<title>GreenThread Struct Reference</title>
+<indexterm><primary>GreenThread</primary></indexterm>
+<para>
+<computeroutput>#include &lt;thread.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structGreenThread_1a916586251b023cfbcc281ec91ac51410"/>ucontext_t <emphasis role="strong">context</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structGreenThread_1a1695b97a06b74178cc8465bb79406836"/>void * <emphasis role="strong">stack</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structGreenThread_1a2973a4c24418e10f6e1fdcc4ac23f284"/>int <emphasis role="strong">id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structGreenThread_1aa95ded76a53c03906bfb3c926a54f1ff"/><link linkend="_thread_8h_1ab3804a8a4369184ad46dadf8e54957b6">ThreadState</link> <emphasis role="strong">state</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structGreenThread_1a01f0e6b1326e536978fc8e8651b33782"/>void(* <emphasis role="strong">function</emphasis> )(void *)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structGreenThread_1ab56c07bbd86e79d1f196d1fe34ec1af3"/>void * <emphasis role="strong">arg</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><link linkend="_structGreenThread">GreenThread</link> is a struct that holds metadata about green thread : context: is the field that contains snapshot of all process , memory related data whilst running the green thread ( register&apos;s values , process register counter ... ) . stack: contains the custom stack that will hold the local variables for the wrapped anonymous functions ( not working properly ) . state: the current state of the green thread . function: the function that the green thread in quesiton will run . arg: the argument that are gonna be fed to the wrapped function . </para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+include/<link linkend="_thread_8h">thread.h</link></section>
+</section>

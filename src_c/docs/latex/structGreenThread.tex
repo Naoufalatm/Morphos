@@ -1,0 +1,35 @@
+\doxysection{Green\+Thread Struct Reference}
+\hypertarget{structGreenThread}{}\label{structGreenThread}\index{GreenThread@{GreenThread}}
+
+
+{\ttfamily \#include $<$thread.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structGreenThread_a916586251b023cfbcc281ec91ac51410}\label{structGreenThread_a916586251b023cfbcc281ec91ac51410} 
+ucontext\+\_\+t {\bfseries context}
+\item 
+\Hypertarget{structGreenThread_a1695b97a06b74178cc8465bb79406836}\label{structGreenThread_a1695b97a06b74178cc8465bb79406836} 
+void \texorpdfstring{$\ast$}{*} {\bfseries stack}
+\item 
+\Hypertarget{structGreenThread_a2973a4c24418e10f6e1fdcc4ac23f284}\label{structGreenThread_a2973a4c24418e10f6e1fdcc4ac23f284} 
+int {\bfseries id}
+\item 
+\Hypertarget{structGreenThread_aa95ded76a53c03906bfb3c926a54f1ff}\label{structGreenThread_aa95ded76a53c03906bfb3c926a54f1ff} 
+\mbox{\hyperlink{thread_8h_ab3804a8a4369184ad46dadf8e54957b6}{Thread\+State}} {\bfseries state}
+\item 
+\Hypertarget{structGreenThread_a01f0e6b1326e536978fc8e8651b33782}\label{structGreenThread_a01f0e6b1326e536978fc8e8651b33782} 
+void(\texorpdfstring{$\ast$}{*} {\bfseries function} )(void \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{structGreenThread_ab56c07bbd86e79d1f196d1fe34ec1af3}\label{structGreenThread_ab56c07bbd86e79d1f196d1fe34ec1af3} 
+void \texorpdfstring{$\ast$}{*} {\bfseries arg}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{structGreenThread}{Green\+Thread} is a struct that holds metadata about green thread \+: context\+: is the field that contains snapshot of all process , memory related data whilst running the green thread ( register\textquotesingle{}s values , process register counter ... ) . stack\+: contains the custom stack that will hold the local variables for the wrapped anonymous functions ( not working properly ) . state\+: the current state of the green thread . function\+: the function that the green thread in quesiton will run . arg\+: the argument that are gonna be fed to the wrapped function . 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{thread_8h}{thread.\+h}}\end{DoxyCompactItemize}

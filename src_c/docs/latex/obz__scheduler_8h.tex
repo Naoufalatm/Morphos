@@ -1,0 +1,71 @@
+\doxysection{include/obz\+\_\+scheduler.h File Reference}
+\hypertarget{obz__scheduler_8h}{}\label{obz__scheduler_8h}\index{include/obz\_scheduler.h@{include/obz\_scheduler.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$ucontext.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{obz__scheduler_8h_a6423a880df59733d2d9b509c7718d3a9}\label{obz__scheduler_8h_a6423a880df59733d2d9b509c7718d3a9} 
+\#define {\bfseries STACK\+\_\+\+SIZE}~(1024 \texorpdfstring{$\ast$}{*} 1024)
+\item 
+\Hypertarget{obz__scheduler_8h_a8b5173357adb02a86c027316e0acdfa0}\label{obz__scheduler_8h_a8b5173357adb02a86c027316e0acdfa0} 
+\#define {\bfseries MAX\+\_\+\+THREADS}~64
+\item 
+\Hypertarget{obz__scheduler_8h_a59ba49b2027830119db2900f521945b2}\label{obz__scheduler_8h_a59ba49b2027830119db2900f521945b2} 
+\#define {\bfseries TIME\+\_\+\+SLICE\+\_\+\+MS}~256
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{obz__scheduler_8h_a4dc06da13baa6917b80d3888236b1ada}{thread\+\_\+wrapper}} (void)
+\item 
+int \mbox{\hyperlink{obz__scheduler_8h_adfadb6ad96125df980076ac41983ceb3}{green\+\_\+thread\+\_\+create}} (void(\texorpdfstring{$\ast$}{*}function)(void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}arg)
+\item 
+void \mbox{\hyperlink{obz__scheduler_8h_a192c95965e87d8680376978cd081b42e}{green\+\_\+thread\+\_\+run}} (void)
+\item 
+void \mbox{\hyperlink{obz__scheduler_8h_a84d08f4f2aeb282075f1415336d9ed67}{setup\+\_\+fault\+\_\+tolerance\+\_\+signal\+\_\+handler}} ()
+\item 
+\Hypertarget{obz__scheduler_8h_a13a43e6d814de94978c515cb084873b1}\label{obz__scheduler_8h_a13a43e6d814de94978c515cb084873b1} 
+void {\bfseries run} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\+: Obz Team This file contains the signature for the dynamically linked funtion that\textquotesingle{}s gonna be used when compiling the sample program with our statically linked library. Each function is well documented in its appropriate file . 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{obz__scheduler_8h_adfadb6ad96125df980076ac41983ceb3}\index{obz\_scheduler.h@{obz\_scheduler.h}!green\_thread\_create@{green\_thread\_create}}
+\index{green\_thread\_create@{green\_thread\_create}!obz\_scheduler.h@{obz\_scheduler.h}}
+\doxysubsubsection{\texorpdfstring{green\_thread\_create()}{green\_thread\_create()}}
+{\footnotesize\ttfamily \label{obz__scheduler_8h_adfadb6ad96125df980076ac41983ceb3} 
+int green\+\_\+thread\+\_\+create (\begin{DoxyParamCaption}\item[{void(\texorpdfstring{$\ast$}{*}}]{function~}{)(void \texorpdfstring{$\ast$}{*}), }\item[{void \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+This function does create a wrapper around user-\/defined anonymous function and append it to the global thread array \textquotesingle{}scheduler.\+threads\mbox{[}\mbox{]}\textquotesingle{} \Hypertarget{obz__scheduler_8h_a192c95965e87d8680376978cd081b42e}\index{obz\_scheduler.h@{obz\_scheduler.h}!green\_thread\_run@{green\_thread\_run}}
+\index{green\_thread\_run@{green\_thread\_run}!obz\_scheduler.h@{obz\_scheduler.h}}
+\doxysubsubsection{\texorpdfstring{green\_thread\_run()}{green\_thread\_run()}}
+{\footnotesize\ttfamily \label{obz__scheduler_8h_a192c95965e87d8680376978cd081b42e} 
+void green\+\_\+thread\+\_\+run (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+this function kickstarts the scheduler \Hypertarget{obz__scheduler_8h_a84d08f4f2aeb282075f1415336d9ed67}\index{obz\_scheduler.h@{obz\_scheduler.h}!setup\_fault\_tolerance\_signal\_handler@{setup\_fault\_tolerance\_signal\_handler}}
+\index{setup\_fault\_tolerance\_signal\_handler@{setup\_fault\_tolerance\_signal\_handler}!obz\_scheduler.h@{obz\_scheduler.h}}
+\doxysubsubsection{\texorpdfstring{setup\_fault\_tolerance\_signal\_handler()}{setup\_fault\_tolerance\_signal\_handler()}}
+{\footnotesize\ttfamily \label{obz__scheduler_8h_a84d08f4f2aeb282075f1415336d9ed67} 
+void setup\+\_\+fault\+\_\+tolerance\+\_\+signal\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+This function does set the interput handler for bootstraping rudimentary fault tolerance for the failure of the Green threads \Hypertarget{obz__scheduler_8h_a4dc06da13baa6917b80d3888236b1ada}\index{obz\_scheduler.h@{obz\_scheduler.h}!thread\_wrapper@{thread\_wrapper}}
+\index{thread\_wrapper@{thread\_wrapper}!obz\_scheduler.h@{obz\_scheduler.h}}
+\doxysubsubsection{\texorpdfstring{thread\_wrapper()}{thread\_wrapper()}}
+{\footnotesize\ttfamily \label{obz__scheduler_8h_a4dc06da13baa6917b80d3888236b1ada} 
+void thread\+\_\+wrapper (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+this function does change the state of the green thread in order to execute the code in the anonymous function 

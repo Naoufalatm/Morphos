@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_include_2README" xml:lang="en-US">
+<title>The C runtime for the &lt;tt&gt;OBZ Scheduler&lt;/tt&gt; :</title>
+<indexterm><primary>The C runtime for the &lt;tt&gt;OBZ Scheduler&lt;/tt&gt; :</primary></indexterm>
+
+<para><anchor xml:id="_md_include_2README_1autotoc_md0"/></para>
+
+<para><orderedlist>
+<listitem>
+<para>Compile the project :</para>
+</listitem></orderedlist>
+</para>
+
+<para><literallayout><computeroutput>&#32;sh
+make&#32;clean&#32;
+make&#32;
+</computeroutput></literallayout></para>
+
+<para>That will create a new two folders , <computeroutput>lib/</computeroutput> and <computeroutput>build/</computeroutput> , we will be concerned by our <computeroutput>lib/libobzruntime.a</computeroutput> since it&apos;s our statically linked runtime , that gonna be consumed by the transpiler. </para>
+</section>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_anonymous_8h_source" xml:lang="en-US">
+<title>anonymous.h</title>
+<indexterm><primary>include/anonymous.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 
+9 <emphasis role="preprocessor">#ifndef&#32;ANONYMOUS_H_</emphasis>
+10 <emphasis role="preprocessor">#define&#32;ANONYMOUS_H_</emphasis>
+11 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_obz__scheduler_8h">obz_scheduler.h</link>&quot;</emphasis>
+12 
+13 
+19 <emphasis role="preprocessor">#define&#32;lambda(lambda$_ret,&#32;lambda$_args,&#32;lambda$_body)\</emphasis>
+20 <emphasis role="preprocessor">&#32;&#32;({\</emphasis>
+21 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;lambda$_ret&#32;lambda$__anon$&#32;lambda$_args\</emphasis>
+22 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&#32;&#32;lambda$_body\</emphasis>
+23 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;&amp;lambda$__anon$;\</emphasis>
+24 <emphasis role="preprocessor">&#32;&#32;})</emphasis>
+25 
+26 
+27 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//&#32;ANONYMOUS_H_</emphasis>
+</programlisting></section>

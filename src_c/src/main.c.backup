@@ -1,0 +1,72 @@
+#include "./obz_scheduler.h"
+#include "thread.h"
+#include "scheduler.h"
+#include "anonymous.h"
+
+// Main scheduler
+Scheduler scheduler = {
+    .thread_count = 0,
+    .current_thread = -1,
+    .is_switching = false
+};
+
+int main() {
+    setup_fault_tolerance_signal_handler();
+
+      green_thread_create(
+        lambda(void, (void* string), {
+                while (1)
+                    printf("2 inside the shit \n");
+            }), NULL );
+
+    green_thread_create(
+        lambda(void, (void* string), {
+                while (1)
+                    printf("3 inside the other shit %s \n", (char*) string);
+            }), "1" );
+
+    /* green_thread_create( */
+    /*     lambda(void, (void* string), { */
+    /*             int i = 0 ; */
+    /*             printf("#### The thread has started ##### \n"); */
+    /*             while (++i < 5) */
+    /*                 printf("4 inside the other shit %s \n", (char*) string); */
+    /*             sleep(1000); */
+    /*             int j = i / 0 ; // let it crash */
+    /*             char* willCrash = NULL; // let it crash */
+    /*             char willSurelyCrash = *willCrash; // let it crash */
+    /*         }), NULL); */
+
+    green_thread_create(
+        lambda(void, (void* string), {
+                while (1)
+                    printf("Zeneo %s \n", (char*) string);
+            }), "zeneo" );
+
+    green_thread_create(
+        lambda(
+            void , // return type
+            (void* arg1), // argument
+            {
+
+                while (1)
+                    printf("1=>  %s \n", (char*) arg1);
+            }
+)
+        , "this is argument1");
+
+    green_thread_create(
+    lambda(void, (void* arg), {
+ int x = 2 + 1    ;
+    printf("%s \n", "hamid chapista")    ;
+    printf("%s \n", "test 21")    ;
+    char* y = "hamid"    ;
+    printf("%d \n", x)    ;
+    printf("%s \n", y) ;}), NULL);
+
+
+    // Run scheduler
+    green_thread_run();
+
+    return 0;
+}

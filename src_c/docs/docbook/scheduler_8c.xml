@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_scheduler_8c" xml:lang="en-US">
+<title>src/scheduler.c File Reference</title>
+<indexterm><primary>src/scheduler.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;obz_scheduler.h&quot;<?linebreak?>#include &quot;scheduler.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_scheduler_8c_1a4dc06da13baa6917b80d3888236b1ada">thread_wrapper</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_scheduler_8c_1a192c95965e87d8680376978cd081b42e">green_thread_run</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_structScheduler">Scheduler</link> <link linkend="_scheduler_8c_1a7714de4b56e9edd12c75f4781688edef">scheduler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>Author</title>
+
+<para>: Obz team</para>
+</formalpara>
+This file contains functions concerning the initialization of the global scheduler object , and function concerning the internals of the scheduler ( runtime ) </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_scheduler_8c_1a192c95965e87d8680376978cd081b42e"/><section>
+    <title>green_thread_run()</title>
+<indexterm><primary>green_thread_run</primary><secondary>scheduler.c</secondary></indexterm>
+<indexterm><primary>scheduler.c</primary><secondary>green_thread_run</secondary></indexterm>
+<para><computeroutput>void green_thread_run (void )</computeroutput></para>
+<para>this function kickstarts the scheduler </para>
+</section>
+<anchor xml:id="_scheduler_8c_1a4dc06da13baa6917b80d3888236b1ada"/><section>
+    <title>thread_wrapper()</title>
+<indexterm><primary>thread_wrapper</primary><secondary>scheduler.c</secondary></indexterm>
+<indexterm><primary>scheduler.c</primary><secondary>thread_wrapper</secondary></indexterm>
+<para><computeroutput>void thread_wrapper (void )</computeroutput></para>
+<para>this function does change the state of the green thread in order to execute the code in the anonymous function </para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_scheduler_8c_1a7714de4b56e9edd12c75f4781688edef"/><section>
+    <title>scheduler</title>
+<indexterm><primary>scheduler</primary><secondary>scheduler.c</secondary></indexterm>
+<indexterm><primary>scheduler.c</primary><secondary>scheduler</secondary></indexterm>
+<para><computeroutput><link linkend="_structScheduler">Scheduler</link> scheduler</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;.thread_count&#32;=&#32;0,
+&#32;&#32;&#32;&#32;.current_thread&#32;=&#32;-1,
+&#32;&#32;&#32;&#32;.is_switching&#32;=&#32;<emphasis role="keyword">false</emphasis>
+}
+</programlisting></section>
+</section>
+</section>

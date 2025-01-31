@@ -1,0 +1,33 @@
+\doxysection{include/anonymous.h File Reference}
+\hypertarget{anonymous_8h}{}\label{anonymous_8h}\index{include/anonymous.h@{include/anonymous.h}}
+{\ttfamily \#include "{}obz\+\_\+scheduler.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{anonymous_8h_af399f7343dc8cdbed2fd402b4fa6a0c0}{lambda}}(lambda\+\_\+ret,  lambda\+\_\+args,  lambda\+\_\+body)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\+: Obz Team This file concerns 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{anonymous_8h_af399f7343dc8cdbed2fd402b4fa6a0c0}\index{anonymous.h@{anonymous.h}!lambda@{lambda}}
+\index{lambda@{lambda}!anonymous.h@{anonymous.h}}
+\doxysubsubsection{\texorpdfstring{lambda}{lambda}}
+{\footnotesize\ttfamily \label{anonymous_8h_af399f7343dc8cdbed2fd402b4fa6a0c0} 
+\#define lambda(\begin{DoxyParamCaption}\item[{}]{lambda\+\_\+ret}{, }\item[{}]{lambda\+\_\+args}{, }\item[{}]{lambda\+\_\+body}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ (\{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ lambda\$\_ret\ lambda\$\_\_anon\$\ lambda\$\_args\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ lambda\$\_body\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \&lambda\$\_\_anon\$;\(\backslash\)}
+\DoxyCodeLine{\ \ \})}
+
+\end{DoxyCode}
+This macro takes the return , the args (variable) and the body ( as a block ) and plugs it out and return the address of the function pointer to be consumed by the \doxylink{thread_8c_adfadb6ad96125df980076ac41983ceb3}{green\+\_\+thread\+\_\+create()} function ( takes it as a wrapper ). 

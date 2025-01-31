@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_fallback_8c" xml:lang="en-US">
+<title>src/fallback.c File Reference</title>
+<indexterm><primary>src/fallback.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;obz_scheduler.h&quot;<?linebreak?>#include &quot;scheduler.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_fallback_8c_1a2d8e4524ed5d4eb68198febbe07a7c49">fallback</link> (int signum)</para>
+</listitem>
+            <listitem><para>void <link linkend="_fallback_8c_1a84d08f4f2aeb282075f1415336d9ed67">setup_fault_tolerance_signal_handler</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_fallback_8c_1a7714de4b56e9edd12c75f4781688edef"/><link linkend="_structScheduler">Scheduler</link> <emphasis role="strong">scheduler</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>Author</title>
+
+<para>: Obz team</para>
+</formalpara>
+This file contains functions concerning handling for interupts and other signals besides the <computeroutput>SIGALRM</computeroutput> that&apos;s used in the scheduling of the green threads </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_fallback_8c_1a2d8e4524ed5d4eb68198febbe07a7c49"/><section>
+    <title>fallback()</title>
+<indexterm><primary>fallback</primary><secondary>fallback.c</secondary></indexterm>
+<indexterm><primary>fallback.c</primary><secondary>fallback</secondary></indexterm>
+<para><computeroutput>void fallback (int signum)</computeroutput></para>
+<para>This function is a rudimentary fallback signal handler , the sleep is to make the printf micro task run the last , since other green processes will be printing theirs </para>
+</section>
+<anchor xml:id="_fallback_8c_1a84d08f4f2aeb282075f1415336d9ed67"/><section>
+    <title>setup_fault_tolerance_signal_handler()</title>
+<indexterm><primary>setup_fault_tolerance_signal_handler</primary><secondary>fallback.c</secondary></indexterm>
+<indexterm><primary>fallback.c</primary><secondary>setup_fault_tolerance_signal_handler</secondary></indexterm>
+<para><computeroutput>void setup_fault_tolerance_signal_handler ( )</computeroutput></para>
+<para>This function does set the interput handler for bootstraping rudimentary fault tolerance for the failure of the Green threads </para>
+</section>
+</section>
+</section>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_anonymous_8h" xml:lang="en-US">
+<title>include/anonymous.h File Reference</title>
+<indexterm><primary>include/anonymous.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;obz_scheduler.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_anonymous_8h_1af399f7343dc8cdbed2fd402b4fa6a0c0">lambda</link>(lambda_ret,  lambda_args,  lambda_body)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>Author</title>
+
+<para>: Obz Team This file concerns </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_anonymous_8h_1af399f7343dc8cdbed2fd402b4fa6a0c0"/><section>
+    <title>lambda</title>
+<indexterm><primary>lambda</primary><secondary>anonymous.h</secondary></indexterm>
+<indexterm><primary>anonymous.h</primary><secondary>lambda</secondary></indexterm>
+<para><computeroutput>#define lambda( lambda_ret,  lambda_args,  lambda_body)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">&#32;&#32;({\
+&#32;&#32;&#32;&#32;lambda$_ret&#32;lambda$__anon$&#32;lambda$_args\
+&#32;&#32;&#32;&#32;&#32;&#32;lambda$_body\
+&#32;&#32;&#32;&#32;&amp;lambda$__anon$;\
+&#32;&#32;})
+</programlisting>
+<para>This macro takes the return , the args (variable) and the body ( as a block ) and plugs it out and return the address of the function pointer to be consumed by the <link linkend="_thread_8c_1adfadb6ad96125df980076ac41983ceb3">green_thread_create()</link> function ( takes it as a wrapper ). </para>
+</section>
+</section>
+</section>

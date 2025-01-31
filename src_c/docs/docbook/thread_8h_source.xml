@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_thread_8h_source" xml:lang="en-US">
+<title>thread.h</title>
+<indexterm><primary>include/thread.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 
+8 <emphasis role="preprocessor">#ifndef&#32;THREAD_H_</emphasis>
+9 <emphasis role="preprocessor">#define&#32;THREAD_H_</emphasis>
+10 <emphasis role="preprocessor">#include&#32;&lt;ucontext.h&gt;</emphasis>
+11 
+12 
+16 <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;{
+17 &#32;&#32;&#32;&#32;READY,
+18 &#32;&#32;&#32;&#32;RUNNING,
+19 &#32;&#32;&#32;&#32;FINISHED
+20 }&#32;<link linkend="_thread_8h_1ab3804a8a4369184ad46dadf8e54957b6">ThreadState</link>;
+21 
+31 <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structGreenThread">GreenThread</link>&#32;{
+32 &#32;&#32;&#32;&#32;ucontext_t&#32;context;
+33 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>*&#32;stack;
+34 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;id;
+35 &#32;&#32;&#32;&#32;<link linkend="_thread_8h_1ab3804a8a4369184ad46dadf8e54957b6">ThreadState</link>&#32;state;
+36 &#32;&#32;&#32;&#32;void&#32;(*function)(<emphasis role="keywordtype">void</emphasis>*);
+37 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>*&#32;arg;
+38 }&#32;<link linkend="_thread_8h_1a2cb3feed3a89920ec208261c5e62f5f0">GreenThread</link>;
+39 
+40 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//&#32;THREAD_H_</emphasis>
+</programlisting></section>

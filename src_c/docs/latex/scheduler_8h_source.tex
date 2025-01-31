@@ -1,0 +1,25 @@
+\doxysection{scheduler.\+h}
+\hypertarget{scheduler_8h_source}{}\label{scheduler_8h_source}\index{include/scheduler.h@{include/scheduler.h}}
+\mbox{\hyperlink{scheduler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ SCHEDULER\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ SCHEDULER\_H\_}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{thread_8h}{thread.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{obz__scheduler_8h}{obz\_scheduler.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structScheduler}{Scheduler}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{structGreenThread}{GreenThread}}*\ threads[MAX\_THREADS];}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ thread\_count;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ current\_thread;}
+\DoxyCodeLine{00025\ \ \ \ \ ucontext\_t\ main\_context;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{struct\ }sigaction\ old\_action;\ \textcolor{comment}{//\ place\ holder\ for\ context\ switching}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{struct\ }itimerval\ old\_timer;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_switching;}
+\DoxyCodeLine{00029\ \}\ \mbox{\hyperlink{scheduler_8h_a1ef1f6f320939ca611a0caca79a97ff1}{Scheduler}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SCHEDULER\_H\_}}
+
+\end{DoxyCode}

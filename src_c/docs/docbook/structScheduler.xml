@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structScheduler" xml:lang="en-US">
+<title>Scheduler Struct Reference</title>
+<indexterm><primary>Scheduler</primary></indexterm>
+<para>
+<computeroutput>#include &lt;scheduler.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structScheduler_1ab36e2f2b33ba6bc7198b0d1a27bbe761"/><link linkend="_structGreenThread">GreenThread</link> * <emphasis role="strong">threads</emphasis> [MAX_THREADS]</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structScheduler_1aa9981cca3f5da4dfcc393aeb9a71b271"/>int <emphasis role="strong">thread_count</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structScheduler_1af50cd7e31e7ed782715b074507181ae6"/>int <emphasis role="strong">current_thread</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structScheduler_1af7606a321ec5006f9204e877b1aa054b"/>ucontext_t <emphasis role="strong">main_context</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structScheduler_1a43384b686d0dcb225535fcc79616a325"/>struct sigaction <emphasis role="strong">old_action</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structScheduler_1accd8df0520ab8320b3d9405a713294fe"/>struct itimerval <emphasis role="strong">old_timer</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structScheduler_1a827197a1a76f39ea4b42a18f7ac84a48"/>bool <emphasis role="strong">is_switching</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>scheduler is a struct that holds metadata about the scheduler global object , the one that will do the scheduling of the green thread : threads: is an allocated array that holds a pointer to greenthread objects current_thread: is the current thread with the <computeroutput>RUNNING</computeroutput> state , the concept of holding the number as an int is used mainly for indexing the threads[] array main_context : is the current ucontext_t of the current_thread ( or threads[current_thread] ) old_timer: is used to set and hold the timer that&apos;s gonna be consumed by the kernel to send the <computeroutput>SIGALRM</computeroutput> signal old_action &amp; is_switching : are not used ! </para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+include/<link linkend="_scheduler_8h">scheduler.h</link></section>
+</section>

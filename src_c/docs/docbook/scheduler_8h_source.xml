@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_scheduler_8h_source" xml:lang="en-US">
+<title>scheduler.h</title>
+<indexterm><primary>include/scheduler.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 
+7 <emphasis role="preprocessor">#ifndef&#32;SCHEDULER_H_</emphasis>
+8 <emphasis role="preprocessor">#define&#32;SCHEDULER_H_</emphasis>
+9 
+10 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_thread_8h">thread.h</link>&quot;</emphasis>
+11 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_obz__scheduler_8h">obz_scheduler.h</link>&quot;</emphasis>
+12 
+21 <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structScheduler">Scheduler</link>&#32;{
+22 &#32;&#32;&#32;&#32;<link linkend="_structGreenThread">GreenThread</link>*&#32;threads[MAX_THREADS];
+23 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;thread_count;
+24 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;current_thread;
+25 &#32;&#32;&#32;&#32;ucontext_t&#32;main_context;
+26 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis>sigaction&#32;old_action;&#32;<emphasis role="comment">//&#32;place&#32;holder&#32;for&#32;context&#32;switching</emphasis>
+27 &#32;&#32;&#32;&#32;<emphasis role="keyword">struct&#32;</emphasis>itimerval&#32;old_timer;
+28 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;is_switching;
+29 }&#32;<link linkend="_scheduler_8h_1a1ef1f6f320939ca611a0caca79a97ff1">Scheduler</link>;
+30 
+31 
+32 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//&#32;SCHEDULER_H_</emphasis>
+</programlisting></section>

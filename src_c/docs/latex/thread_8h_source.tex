@@ -1,0 +1,28 @@
+\doxysection{thread.\+h}
+\hypertarget{thread_8h_source}{}\label{thread_8h_source}\index{include/thread.h@{include/thread.h}}
+\mbox{\hyperlink{thread_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ THREAD\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ THREAD\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <ucontext.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ READY,}
+\DoxyCodeLine{00018\ \ \ \ \ RUNNING,}
+\DoxyCodeLine{00019\ \ \ \ \ FINISHED}
+\DoxyCodeLine{00020\ \}\ \mbox{\hyperlink{thread_8h_ab3804a8a4369184ad46dadf8e54957b6}{ThreadState}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGreenThread}{GreenThread}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ ucontext\_t\ context;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}*\ stack;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{thread_8h_ab3804a8a4369184ad46dadf8e54957b6}{ThreadState}}\ state;}
+\DoxyCodeLine{00036\ \ \ \ \ void\ (*function)(\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}*\ arg;}
+\DoxyCodeLine{00038\ \}\ \mbox{\hyperlink{thread_8h_a2cb3feed3a89920ec208261c5e62f5f0}{GreenThread}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ THREAD\_H\_}}
+
+\end{DoxyCode}

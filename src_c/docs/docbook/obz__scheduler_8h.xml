@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_obz__scheduler_8h" xml:lang="en-US">
+<title>include/obz_scheduler.h File Reference</title>
+<indexterm><primary>include/obz_scheduler.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;ucontext.h&gt;<?linebreak?>#include &lt;signal.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;sys/time.h&gt;<?linebreak?>#include &lt;unistd.h&gt;<?linebreak?>#include &lt;fcntl.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_obz__scheduler_8h_1a6423a880df59733d2d9b509c7718d3a9"/>#define <emphasis role="strong">STACK_SIZE</emphasis>&#160;&#160;&#160;(1024 * 1024)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_obz__scheduler_8h_1a8b5173357adb02a86c027316e0acdfa0"/>#define <emphasis role="strong">MAX_THREADS</emphasis>&#160;&#160;&#160;64</para>
+</listitem>
+            <listitem><para><anchor xml:id="_obz__scheduler_8h_1a59ba49b2027830119db2900f521945b2"/>#define <emphasis role="strong">TIME_SLICE_MS</emphasis>&#160;&#160;&#160;256</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_obz__scheduler_8h_1a4dc06da13baa6917b80d3888236b1ada">thread_wrapper</link> (void)</para>
+</listitem>
+            <listitem><para>int <link linkend="_obz__scheduler_8h_1adfadb6ad96125df980076ac41983ceb3">green_thread_create</link> (void(*function)(void *), void *arg)</para>
+</listitem>
+            <listitem><para>void <link linkend="_obz__scheduler_8h_1a192c95965e87d8680376978cd081b42e">green_thread_run</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_obz__scheduler_8h_1a84d08f4f2aeb282075f1415336d9ed67">setup_fault_tolerance_signal_handler</link> ()</para>
+</listitem>
+            <listitem><para><anchor xml:id="_obz__scheduler_8h_1a13a43e6d814de94978c515cb084873b1"/>void <emphasis role="strong">run</emphasis> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>Author</title>
+
+<para>: Obz Team This file contains the signature for the dynamically linked funtion that&apos;s gonna be used when compiling the sample program with our statically linked library. Each function is well documented in its appropriate file . </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_obz__scheduler_8h_1adfadb6ad96125df980076ac41983ceb3"/><section>
+    <title>green_thread_create()</title>
+<indexterm><primary>green_thread_create</primary><secondary>obz_scheduler.h</secondary></indexterm>
+<indexterm><primary>obz_scheduler.h</primary><secondary>green_thread_create</secondary></indexterm>
+<para><computeroutput>int green_thread_create (void(* function&#160;)(void *), void * arg)</computeroutput></para>
+<para>This function does create a wrapper around user-defined anonymous function and append it to the global thread array &apos;scheduler.threads[]&apos; </para>
+</section>
+<anchor xml:id="_obz__scheduler_8h_1a192c95965e87d8680376978cd081b42e"/><section>
+    <title>green_thread_run()</title>
+<indexterm><primary>green_thread_run</primary><secondary>obz_scheduler.h</secondary></indexterm>
+<indexterm><primary>obz_scheduler.h</primary><secondary>green_thread_run</secondary></indexterm>
+<para><computeroutput>void green_thread_run (void )</computeroutput></para>
+<para>this function kickstarts the scheduler </para>
+</section>
+<anchor xml:id="_obz__scheduler_8h_1a84d08f4f2aeb282075f1415336d9ed67"/><section>
+    <title>setup_fault_tolerance_signal_handler()</title>
+<indexterm><primary>setup_fault_tolerance_signal_handler</primary><secondary>obz_scheduler.h</secondary></indexterm>
+<indexterm><primary>obz_scheduler.h</primary><secondary>setup_fault_tolerance_signal_handler</secondary></indexterm>
+<para><computeroutput>void setup_fault_tolerance_signal_handler ( )</computeroutput></para>
+<para>This function does set the interput handler for bootstraping rudimentary fault tolerance for the failure of the Green threads </para>
+</section>
+<anchor xml:id="_obz__scheduler_8h_1a4dc06da13baa6917b80d3888236b1ada"/><section>
+    <title>thread_wrapper()</title>
+<indexterm><primary>thread_wrapper</primary><secondary>obz_scheduler.h</secondary></indexterm>
+<indexterm><primary>obz_scheduler.h</primary><secondary>thread_wrapper</secondary></indexterm>
+<para><computeroutput>void thread_wrapper (void )</computeroutput></para>
+<para>this function does change the state of the green thread in order to execute the code in the anonymous function </para>
+</section>
+</section>
+</section>

@@ -1,0 +1,55 @@
+\doxysection{src/scheduler.c File Reference}
+\hypertarget{scheduler_8c}{}\label{scheduler_8c}\index{src/scheduler.c@{src/scheduler.c}}
+{\ttfamily \#include "{}obz\+\_\+scheduler.\+h"{}}\newline
+{\ttfamily \#include "{}scheduler.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{scheduler_8c_a4dc06da13baa6917b80d3888236b1ada}{thread\+\_\+wrapper}} (void)
+\item 
+void \mbox{\hyperlink{scheduler_8c_a192c95965e87d8680376978cd081b42e}{green\+\_\+thread\+\_\+run}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structScheduler}{Scheduler}} \mbox{\hyperlink{scheduler_8c_a7714de4b56e9edd12c75f4781688edef}{scheduler}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\+: Obz team
+\end{DoxyAuthor}
+This file contains functions concerning the initialization of the global scheduler object , and function concerning the internals of the scheduler ( runtime ) 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{scheduler_8c_a192c95965e87d8680376978cd081b42e}\index{scheduler.c@{scheduler.c}!green\_thread\_run@{green\_thread\_run}}
+\index{green\_thread\_run@{green\_thread\_run}!scheduler.c@{scheduler.c}}
+\doxysubsubsection{\texorpdfstring{green\_thread\_run()}{green\_thread\_run()}}
+{\footnotesize\ttfamily \label{scheduler_8c_a192c95965e87d8680376978cd081b42e} 
+void green\+\_\+thread\+\_\+run (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+this function kickstarts the scheduler \Hypertarget{scheduler_8c_a4dc06da13baa6917b80d3888236b1ada}\index{scheduler.c@{scheduler.c}!thread\_wrapper@{thread\_wrapper}}
+\index{thread\_wrapper@{thread\_wrapper}!scheduler.c@{scheduler.c}}
+\doxysubsubsection{\texorpdfstring{thread\_wrapper()}{thread\_wrapper()}}
+{\footnotesize\ttfamily \label{scheduler_8c_a4dc06da13baa6917b80d3888236b1ada} 
+void thread\+\_\+wrapper (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+this function does change the state of the green thread in order to execute the code in the anonymous function 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{scheduler_8c_a7714de4b56e9edd12c75f4781688edef}\index{scheduler.c@{scheduler.c}!scheduler@{scheduler}}
+\index{scheduler@{scheduler}!scheduler.c@{scheduler.c}}
+\doxysubsubsection{\texorpdfstring{scheduler}{scheduler}}
+{\footnotesize\ttfamily \label{scheduler_8c_a7714de4b56e9edd12c75f4781688edef} 
+\mbox{\hyperlink{structScheduler}{Scheduler}} scheduler}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .thread\_count\ =\ 0,}
+\DoxyCodeLine{\ \ \ \ .current\_thread\ =\ -\/1,}
+\DoxyCodeLine{\ \ \ \ .is\_switching\ =\ \textcolor{keyword}{false}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
